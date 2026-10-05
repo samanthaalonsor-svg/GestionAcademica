@@ -53,15 +53,20 @@ namespace GestionAcademica.Forms
             tabReportes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvReporte).BeginInit();
             SuspendLayout();
+            // 
             // tabControl
+            // 
             tabControl.Controls.Add(tabOrm);
             tabControl.Controls.Add(tabReportes);
-            tabControl.Location = new Point(20, 20);
+            tabControl.Location = new Point(18, 15);
+            tabControl.Margin = new Padding(3, 2, 3, 2);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(1120, 610);
+            tabControl.Size = new Size(980, 458);
             tabControl.TabIndex = 0;
+            // 
             // tabOrm
+            // 
             tabOrm.BackColor = Color.FromArgb(226, 232, 240);
             tabOrm.Controls.Add(lblOrmTitulo);
             tabOrm.Controls.Add(lblCodigoOrm);
@@ -75,85 +80,141 @@ namespace GestionAcademica.Forms
             tabOrm.Controls.Add(btnActualizarOrm);
             tabOrm.Controls.Add(btnEliminarOrm);
             tabOrm.Controls.Add(dgvOrmEstudiantes);
-            tabOrm.Location = new Point(4, 29);
+            tabOrm.Location = new Point(4, 24);
+            tabOrm.Margin = new Padding(3, 2, 3, 2);
             tabOrm.Name = "tabOrm";
-            tabOrm.Padding = new Padding(3);
-            tabOrm.Size = new Size(1112, 577);
+            tabOrm.Padding = new Padding(3, 2, 3, 2);
+            tabOrm.Size = new Size(972, 430);
             tabOrm.TabIndex = 0;
             tabOrm.Text = "CRUD con Entity Framework Core";
+            // 
             // lblOrmTitulo
+            // 
             lblOrmTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblOrmTitulo.ForeColor = Color.FromArgb(27, 54, 93);
-            lblOrmTitulo.Location = new Point(25, 18);
+            lblOrmTitulo.Location = new Point(3, 12);
             lblOrmTitulo.Name = "lblOrmTitulo";
-            lblOrmTitulo.Size = new Size(1050, 35);
+            lblOrmTitulo.Size = new Size(919, 26);
             lblOrmTitulo.TabIndex = 0;
             lblOrmTitulo.Text = "CRUD de estudiantes mediante ORM (Entity Framework Core)";
             lblOrmTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            // labels/textboxes
+            // 
+            // lblCodigoOrm
+            // 
             lblCodigoOrm.AutoSize = true;
-            lblCodigoOrm.Location = new Point(35, 75);
+            lblCodigoOrm.Location = new Point(402, 56);
             lblCodigoOrm.Name = "lblCodigoOrm";
+            lblCodigoOrm.Size = new Size(49, 15);
+            lblCodigoOrm.TabIndex = 1;
             lblCodigoOrm.Text = "Código:";
-            txtCodigoOrm.Location = new Point(115, 71);
+            // 
+            // txtCodigoOrm
+            // 
+            txtCodigoOrm.Location = new Point(457, 53);
+            txtCodigoOrm.Margin = new Padding(3, 2, 3, 2);
             txtCodigoOrm.Name = "txtCodigoOrm";
-            txtCodigoOrm.Size = new Size(180, 27);
+            txtCodigoOrm.Size = new Size(158, 23);
+            txtCodigoOrm.TabIndex = 2;
+            // 
+            // lblAlumnoOrm
+            // 
             lblAlumnoOrm.AutoSize = true;
-            lblAlumnoOrm.Location = new Point(320, 75);
+            lblAlumnoOrm.Location = new Point(31, 56);
             lblAlumnoOrm.Name = "lblAlumnoOrm";
+            lblAlumnoOrm.Size = new Size(65, 15);
+            lblAlumnoOrm.TabIndex = 3;
             lblAlumnoOrm.Text = "Estudiante:";
-            txtAlumnoOrm.Location = new Point(405, 71);
+            // 
+            // txtAlumnoOrm
+            // 
+            txtAlumnoOrm.Location = new Point(102, 53);
+            txtAlumnoOrm.Margin = new Padding(3, 2, 3, 2);
             txtAlumnoOrm.Name = "txtAlumnoOrm";
-            txtAlumnoOrm.Size = new Size(280, 27);
+            txtAlumnoOrm.Size = new Size(246, 23);
+            txtAlumnoOrm.TabIndex = 4;
+            // 
+            // lblEstado
+            // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(710, 75);
+            lblEstado.Location = new Point(621, 56);
             lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(45, 15);
+            lblEstado.TabIndex = 5;
             lblEstado.Text = "Estado:";
+            // 
+            // cboEstado
+            // 
             cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboEstado.Location = new Point(765, 71);
+            cboEstado.Location = new Point(669, 53);
+            cboEstado.Margin = new Padding(3, 2, 3, 2);
             cboEstado.Name = "cboEstado";
-            cboEstado.Size = new Size(150, 28);
-            // ORM buttons
-            btnNuevoOrm.Location = new Point(35, 120);
+            cboEstado.Size = new Size(132, 23);
+            cboEstado.TabIndex = 6;
+            // 
+            // btnNuevoOrm
+            // 
+            btnNuevoOrm.Location = new Point(81, 90);
+            btnNuevoOrm.Margin = new Padding(3, 2, 3, 2);
             btnNuevoOrm.Name = "btnNuevoOrm";
-            btnNuevoOrm.Size = new Size(120, 38);
+            btnNuevoOrm.Size = new Size(105, 28);
+            btnNuevoOrm.TabIndex = 7;
             btnNuevoOrm.Text = "Nuevo";
             btnNuevoOrm.UseVisualStyleBackColor = true;
             btnNuevoOrm.Click += BtnNuevoOrm_Click;
+            // 
+            // btnGuardarOrm
+            // 
             btnGuardarOrm.BackColor = Color.FromArgb(27, 54, 93);
             btnGuardarOrm.FlatStyle = FlatStyle.Flat;
             btnGuardarOrm.ForeColor = Color.White;
-            btnGuardarOrm.Location = new Point(165, 120);
+            btnGuardarOrm.Location = new Point(241, 90);
+            btnGuardarOrm.Margin = new Padding(3, 2, 3, 2);
             btnGuardarOrm.Name = "btnGuardarOrm";
-            btnGuardarOrm.Size = new Size(140, 38);
+            btnGuardarOrm.Size = new Size(122, 28);
+            btnGuardarOrm.TabIndex = 8;
             btnGuardarOrm.Text = "Guardar ORM";
             btnGuardarOrm.UseVisualStyleBackColor = false;
             btnGuardarOrm.Click += BtnGuardarOrm_Click;
-            btnActualizarOrm.Location = new Point(315, 120);
+            // 
+            // btnActualizarOrm
+            // 
+            btnActualizarOrm.Location = new Point(423, 90);
+            btnActualizarOrm.Margin = new Padding(3, 2, 3, 2);
             btnActualizarOrm.Name = "btnActualizarOrm";
-            btnActualizarOrm.Size = new Size(140, 38);
+            btnActualizarOrm.Size = new Size(122, 28);
+            btnActualizarOrm.TabIndex = 9;
             btnActualizarOrm.Text = "Actualizar ORM";
             btnActualizarOrm.Click += BtnActualizarOrm_Click;
-            btnEliminarOrm.Location = new Point(465, 120);
+            // 
+            // btnEliminarOrm
+            // 
+            btnEliminarOrm.Location = new Point(669, 90);
+            btnEliminarOrm.Margin = new Padding(3, 2, 3, 2);
             btnEliminarOrm.Name = "btnEliminarOrm";
-            btnEliminarOrm.Size = new Size(140, 38);
+            btnEliminarOrm.Size = new Size(122, 28);
+            btnEliminarOrm.TabIndex = 10;
             btnEliminarOrm.Text = "Eliminar ORM";
             btnEliminarOrm.Click += BtnEliminarOrm_Click;
-            // grid ORM
+            // 
+            // dgvOrmEstudiantes
+            // 
             dgvOrmEstudiantes.AllowUserToAddRows = false;
             dgvOrmEstudiantes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvOrmEstudiantes.BackgroundColor = Color.White;
             dgvOrmEstudiantes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrmEstudiantes.Location = new Point(35, 180);
+            dgvOrmEstudiantes.Location = new Point(31, 135);
+            dgvOrmEstudiantes.Margin = new Padding(3, 2, 3, 2);
             dgvOrmEstudiantes.MultiSelect = false;
             dgvOrmEstudiantes.Name = "dgvOrmEstudiantes";
             dgvOrmEstudiantes.ReadOnly = true;
             dgvOrmEstudiantes.RowHeadersVisible = false;
             dgvOrmEstudiantes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvOrmEstudiantes.Size = new Size(1035, 350);
+            dgvOrmEstudiantes.Size = new Size(906, 262);
             dgvOrmEstudiantes.TabIndex = 11;
             dgvOrmEstudiantes.SelectionChanged += DgvOrmEstudiantes_SelectionChanged;
+            // 
             // tabReportes
+            // 
             tabReportes.BackColor = Color.FromArgb(226, 232, 240);
             tabReportes.Controls.Add(lblReporteTitulo);
             tabReportes.Controls.Add(lblTipoReporte);
@@ -173,126 +234,217 @@ namespace GestionAcademica.Forms
             tabReportes.Controls.Add(btnExportarReporte);
             tabReportes.Controls.Add(lblResultado);
             tabReportes.Controls.Add(dgvReporte);
-            tabReportes.Location = new Point(4, 29);
+            tabReportes.Location = new Point(4, 24);
+            tabReportes.Margin = new Padding(3, 2, 3, 2);
             tabReportes.Name = "tabReportes";
-            tabReportes.Padding = new Padding(3);
-            tabReportes.Size = new Size(1112, 577);
+            tabReportes.Padding = new Padding(3, 2, 3, 2);
+            tabReportes.Size = new Size(972, 430);
             tabReportes.TabIndex = 1;
             tabReportes.Text = "Reportes dinámicos con LINQ";
-            // report title
+            // 
+            // lblReporteTitulo
+            // 
             lblReporteTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblReporteTitulo.ForeColor = Color.FromArgb(27, 54, 93);
-            lblReporteTitulo.Location = new Point(25, 15);
+            lblReporteTitulo.Location = new Point(22, 11);
             lblReporteTitulo.Name = "lblReporteTitulo";
-            lblReporteTitulo.Size = new Size(1050, 35);
+            lblReporteTitulo.Size = new Size(919, 26);
             lblReporteTitulo.TabIndex = 0;
             lblReporteTitulo.Text = "Reportes dinámicos integrados a la aplicación";
             lblReporteTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            // report filters
+            // 
+            // lblTipoReporte
+            // 
             lblTipoReporte.AutoSize = true;
-            lblTipoReporte.Location = new Point(30, 68);
+            lblTipoReporte.Location = new Point(26, 51);
+            lblTipoReporte.Name = "lblTipoReporte";
+            lblTipoReporte.Size = new Size(91, 15);
+            lblTipoReporte.TabIndex = 1;
             lblTipoReporte.Text = "Tipo de reporte:";
+            // 
+            // cboTipoReporte
+            // 
             cboTipoReporte.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboTipoReporte.Location = new Point(165, 64);
+            cboTipoReporte.Location = new Point(144, 48);
+            cboTipoReporte.Margin = new Padding(3, 2, 3, 2);
             cboTipoReporte.Name = "cboTipoReporte";
-            cboTipoReporte.Size = new Size(270, 28);
+            cboTipoReporte.Size = new Size(237, 23);
+            cboTipoReporte.TabIndex = 2;
             cboTipoReporte.SelectedIndexChanged += CboTipoReporte_SelectedIndexChanged;
+            // 
+            // lblFiltro
+            // 
             lblFiltro.AutoSize = true;
-            lblFiltro.Location = new Point(455, 68);
+            lblFiltro.Location = new Point(398, 51);
             lblFiltro.Name = "lblFiltro";
+            lblFiltro.Size = new Size(117, 15);
+            lblFiltro.TabIndex = 3;
             lblFiltro.Text = "Código o estudiante:";
-            txtFiltro.Location = new Point(725, 64);
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(634, 48);
+            txtFiltro.Margin = new Padding(3, 2, 3, 2);
             txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(220, 27);
+            txtFiltro.Size = new Size(193, 23);
+            txtFiltro.TabIndex = 4;
+            // 
+            // lblEstadoReporte
+            // 
             lblEstadoReporte.AutoSize = true;
-            lblEstadoReporte.Location = new Point(30, 108);
+            lblEstadoReporte.Location = new Point(26, 81);
             lblEstadoReporte.Name = "lblEstadoReporte";
+            lblEstadoReporte.Size = new Size(45, 15);
+            lblEstadoReporte.TabIndex = 5;
             lblEstadoReporte.Text = "Estado:";
+            // 
+            // cboEstadoReporte
+            // 
             cboEstadoReporte.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboEstadoReporte.Location = new Point(165, 104);
+            cboEstadoReporte.Location = new Point(144, 78);
+            cboEstadoReporte.Margin = new Padding(3, 2, 3, 2);
             cboEstadoReporte.Name = "cboEstadoReporte";
-            cboEstadoReporte.Size = new Size(200, 28);
+            cboEstadoReporte.Size = new Size(176, 23);
+            cboEstadoReporte.TabIndex = 6;
+            // 
+            // lblDesde
+            // 
             lblDesde.AutoSize = true;
-            lblDesde.Location = new Point(30, 108);
+            lblDesde.Location = new Point(26, 81);
             lblDesde.Name = "lblDesde";
+            lblDesde.Size = new Size(42, 15);
+            lblDesde.TabIndex = 7;
             lblDesde.Text = "Desde:";
+            // 
+            // dtpDesde
+            // 
             dtpDesde.Format = DateTimePickerFormat.Short;
-            dtpDesde.Location = new Point(165, 104);
+            dtpDesde.Location = new Point(144, 78);
+            dtpDesde.Margin = new Padding(3, 2, 3, 2);
             dtpDesde.Name = "dtpDesde";
-            dtpDesde.Size = new Size(150, 27);
-            dtpDesde.Value = DateTime.Today.AddMonths(-1);
+            dtpDesde.Size = new Size(132, 23);
+            dtpDesde.TabIndex = 8;
+            dtpDesde.Value = new DateTime(2026, 9, 5, 0, 0, 0, 0);
+            // 
+            // lblHasta
+            // 
             lblHasta.AutoSize = true;
-            lblHasta.Location = new Point(340, 108);
+            lblHasta.Location = new Point(298, 81);
             lblHasta.Name = "lblHasta";
+            lblHasta.Size = new Size(40, 15);
+            lblHasta.TabIndex = 9;
             lblHasta.Text = "Hasta:";
+            // 
+            // dtpHasta
+            // 
             dtpHasta.Format = DateTimePickerFormat.Short;
-            dtpHasta.Location = new Point(410, 104);
+            dtpHasta.Location = new Point(359, 78);
+            dtpHasta.Margin = new Padding(3, 2, 3, 2);
             dtpHasta.Name = "dtpHasta";
-            dtpHasta.Size = new Size(150, 27);
-            dtpHasta.Value = DateTime.Today;
+            dtpHasta.Size = new Size(132, 23);
+            dtpHasta.TabIndex = 10;
+            dtpHasta.Value = new DateTime(2026, 10, 5, 0, 0, 0, 0);
+            // 
+            // lblNotaMinima
+            // 
             lblNotaMinima.AutoSize = true;
-            lblNotaMinima.Location = new Point(30, 108);
+            lblNotaMinima.Location = new Point(26, 81);
             lblNotaMinima.Name = "lblNotaMinima";
+            lblNotaMinima.Size = new Size(80, 15);
+            lblNotaMinima.TabIndex = 11;
             lblNotaMinima.Text = "Nota mínima:";
-            txtNotaMinima.Location = new Point(165, 104);
+            // 
+            // txtNotaMinima
+            // 
+            txtNotaMinima.Location = new Point(144, 78);
+            txtNotaMinima.Margin = new Padding(3, 2, 3, 2);
             txtNotaMinima.Name = "txtNotaMinima";
-            txtNotaMinima.Size = new Size(100, 27);
-            // report buttons
+            txtNotaMinima.Size = new Size(88, 23);
+            txtNotaMinima.TabIndex = 12;
+            // 
+            // btnGenerarReporte
+            // 
             btnGenerarReporte.BackColor = Color.FromArgb(27, 54, 93);
             btnGenerarReporte.FlatStyle = FlatStyle.Flat;
             btnGenerarReporte.ForeColor = Color.White;
-            btnGenerarReporte.Location = new Point(30, 150);
+            btnGenerarReporte.Location = new Point(26, 112);
+            btnGenerarReporte.Margin = new Padding(3, 2, 3, 2);
             btnGenerarReporte.Name = "btnGenerarReporte";
-            btnGenerarReporte.Size = new Size(150, 38);
+            btnGenerarReporte.Size = new Size(131, 28);
+            btnGenerarReporte.TabIndex = 13;
             btnGenerarReporte.Text = "Generar reporte";
             btnGenerarReporte.UseVisualStyleBackColor = false;
             btnGenerarReporte.Click += BtnGenerarReporte_Click;
-            btnLimpiarReporte.Location = new Point(195, 150);
+            // 
+            // btnLimpiarReporte
+            // 
+            btnLimpiarReporte.Location = new Point(171, 112);
+            btnLimpiarReporte.Margin = new Padding(3, 2, 3, 2);
             btnLimpiarReporte.Name = "btnLimpiarReporte";
-            btnLimpiarReporte.Size = new Size(120, 38);
+            btnLimpiarReporte.Size = new Size(105, 28);
+            btnLimpiarReporte.TabIndex = 14;
             btnLimpiarReporte.Text = "Limpiar";
             btnLimpiarReporte.Click += BtnLimpiarReporte_Click;
-            btnExportarReporte.Location = new Point(330, 150);
+            // 
+            // btnExportarReporte
+            // 
+            btnExportarReporte.Location = new Point(289, 112);
+            btnExportarReporte.Margin = new Padding(3, 2, 3, 2);
             btnExportarReporte.Name = "btnExportarReporte";
-            btnExportarReporte.Size = new Size(135, 38);
+            btnExportarReporte.Size = new Size(118, 28);
+            btnExportarReporte.TabIndex = 15;
             btnExportarReporte.Text = "Exportar CSV";
             btnExportarReporte.Click += BtnExportarReporte_Click;
+            // 
+            // lblResultado
+            // 
             lblResultado.AutoSize = true;
-            lblResultado.Location = new Point(30, 200);
+            lblResultado.Location = new Point(26, 150);
             lblResultado.Name = "lblResultado";
+            lblResultado.Size = new Size(136, 15);
+            lblResultado.TabIndex = 16;
             lblResultado.Text = "Registros encontrados: 0";
-            // report grid
+            // 
+            // dgvReporte
+            // 
             dgvReporte.AllowUserToAddRows = false;
             dgvReporte.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvReporte.BackgroundColor = Color.White;
             dgvReporte.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvReporte.Location = new Point(30, 230);
+            dgvReporte.Location = new Point(26, 172);
+            dgvReporte.Margin = new Padding(3, 2, 3, 2);
             dgvReporte.MultiSelect = false;
             dgvReporte.Name = "dgvReporte";
             dgvReporte.ReadOnly = true;
             dgvReporte.RowHeadersVisible = false;
             dgvReporte.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvReporte.Size = new Size(1040, 300);
+            dgvReporte.Size = new Size(910, 225);
             dgvReporte.TabIndex = 20;
-            // close
-            btnCerrar.Location = new Point(990, 645);
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Location = new Point(783, 486);
+            btnCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(150, 38);
+            btnCerrar.Size = new Size(131, 28);
             btnCerrar.TabIndex = 2;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
             btnCerrar.Click += BtnCerrar_Click;
-            // form
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            // 
+            // FormORM
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(226, 232, 240);
-            ClientSize = new Size(1160, 700);
+            ClientSize = new Size(1015, 525);
             Controls.Add(btnCerrar);
             Controls.Add(tabControl);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FormEntregable6";
+            Name = "FormORM";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Entregable 6 - ORM y Reportes";
             tabControl.ResumeLayout(false);
