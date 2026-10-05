@@ -10,6 +10,11 @@ namespace GestionAcademica.Forms
         {
             InitializeComponent();
         }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            Application.Exit();
+        }
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
