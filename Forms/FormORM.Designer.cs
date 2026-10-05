@@ -92,7 +92,7 @@ namespace GestionAcademica.Forms
             // 
             lblOrmTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblOrmTitulo.ForeColor = Color.FromArgb(27, 54, 93);
-            lblOrmTitulo.Location = new Point(3, 12);
+            lblOrmTitulo.Location = new Point(3, 0);
             lblOrmTitulo.Name = "lblOrmTitulo";
             lblOrmTitulo.Size = new Size(919, 26);
             lblOrmTitulo.TabIndex = 0;
@@ -102,7 +102,7 @@ namespace GestionAcademica.Forms
             // lblCodigoOrm
             // 
             lblCodigoOrm.AutoSize = true;
-            lblCodigoOrm.Location = new Point(402, 56);
+            lblCodigoOrm.Location = new Point(68, 53);
             lblCodigoOrm.Name = "lblCodigoOrm";
             lblCodigoOrm.Size = new Size(49, 15);
             lblCodigoOrm.TabIndex = 1;
@@ -110,7 +110,7 @@ namespace GestionAcademica.Forms
             // 
             // txtCodigoOrm
             // 
-            txtCodigoOrm.Location = new Point(457, 53);
+            txtCodigoOrm.Location = new Point(123, 50);
             txtCodigoOrm.Margin = new Padding(3, 2, 3, 2);
             txtCodigoOrm.Name = "txtCodigoOrm";
             txtCodigoOrm.Size = new Size(158, 23);
@@ -119,7 +119,7 @@ namespace GestionAcademica.Forms
             // lblAlumnoOrm
             // 
             lblAlumnoOrm.AutoSize = true;
-            lblAlumnoOrm.Location = new Point(31, 56);
+            lblAlumnoOrm.Location = new Point(298, 53);
             lblAlumnoOrm.Name = "lblAlumnoOrm";
             lblAlumnoOrm.Size = new Size(65, 15);
             lblAlumnoOrm.TabIndex = 3;
@@ -127,7 +127,7 @@ namespace GestionAcademica.Forms
             // 
             // txtAlumnoOrm
             // 
-            txtAlumnoOrm.Location = new Point(102, 53);
+            txtAlumnoOrm.Location = new Point(369, 48);
             txtAlumnoOrm.Margin = new Padding(3, 2, 3, 2);
             txtAlumnoOrm.Name = "txtAlumnoOrm";
             txtAlumnoOrm.Size = new Size(246, 23);
