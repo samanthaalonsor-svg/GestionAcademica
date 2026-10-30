@@ -6,10 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestionAcademica.Negocio
 {
-    /// <summary>
-    /// Operaciones de Entity Framework Core y consultas LINQ del Entregable 6.
-    /// Convive con el acceso ADO.NET existente y no reemplaza los DAO actuales.
-    /// </summary>
     public class Entregable6OrmBL
     {
         private readonly CatalogosBL catalogosBL = new CatalogosBL();
@@ -22,8 +18,7 @@ namespace GestionAcademica.Negocio
 
         public List<EstadoOrm> ObtenerEstados()
         {
-            // El texto de los catálogos se lee del acceso ADO.NET existente (SELECT * de cada catálogo),
-            // detectando la columna de texto: así funciona aunque la base ya creada use otros nombres de columna.
+            
             var estados = LeerCatalogo(catalogosBL.ObtenerEstados(), "estado", "nombre_estado", "NombreEstado", "nombre");
 
             return estados
@@ -32,11 +27,7 @@ namespace GestionAcademica.Negocio
                 .ToList();
         }
 
-        /// <summary>
-        /// Convierte una tabla de catálogo (id, texto) en un diccionario id -> texto.
-        /// La primera columna es el id; el texto es la primera columna candidata que exista o, si no,
-        /// la primera columna de tipo texto.
-        /// </summary>
+        
         private static Dictionary<int, string> LeerCatalogo(DataTable tabla, params string[] columnasCandidatas)
         {
             var resultado = new Dictionary<int, string>();
@@ -149,7 +140,7 @@ namespace GestionAcademica.Negocio
             var materias = LeerCatalogo(catalogosBL.ObtenerMaterias(), "materia", "nombre_materia", "NombreMateria", "nombre");
             var profesores = LeerCatalogo(catalogosBL.ObtenerProfesores(), "profesor", "nombre_profesor", "NombreProfesor", "nombre", "nombre_completo");
 
-            // Materias cuyo nombre coincide con el texto buscado (el filtro se traduce a un IN en SQL).
+            
             List<int> idsMateria = BuscarIds(materias, texto);
 
             using var db = new GestionAcademicaDbContext();
@@ -197,7 +188,7 @@ namespace GestionAcademica.Negocio
 
             using var db = new GestionAcademicaDbContext();
 
-            // El filtro de nota mínima se aplica sobre la entidad, antes de proyectar.
+           
             IQueryable<EvaluacionFinal> evaluaciones = db.EvaluacionesFinales.AsNoTracking();
             if (notaMinima.HasValue)
                 evaluaciones = evaluaciones.Where(ev => ev.NotaFinal >= notaMinima.Value);

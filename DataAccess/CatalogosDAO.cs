@@ -12,8 +12,9 @@ namespace GestionAcademica.DataAccess
             using (SqlCommand cmd = new SqlCommand(nombreSp, cn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
-                adaptador.Fill(tabla);
+                cn.Open();
+                using (SqlDataReader lector = cmd.ExecuteReader())
+                    tabla.Load(lector);
             }
             return tabla;
         }

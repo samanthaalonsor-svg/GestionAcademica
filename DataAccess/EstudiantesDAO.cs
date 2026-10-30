@@ -14,8 +14,9 @@ namespace GestionAcademica.DataAccess
             using (SqlCommand cmd = new SqlCommand("sp_Estudiantes_ObtenerTodos", cn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
-                adaptador.Fill(tabla);
+                cn.Open();
+                using (SqlDataReader lector = cmd.ExecuteReader())
+                    tabla.Load(lector);
             }
 
             return tabla;
@@ -29,8 +30,9 @@ namespace GestionAcademica.DataAccess
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@texto", SqlDbType.NVarChar, 150).Value = texto ?? string.Empty;
-                using (SqlDataAdapter adaptador = new SqlDataAdapter(cmd))
-                    adaptador.Fill(tabla);
+                cn.Open();
+                using (SqlDataReader lector = cmd.ExecuteReader())
+                    tabla.Load(lector);
             }
             return tabla;
         }
@@ -116,5 +118,48 @@ namespace GestionAcademica.DataAccess
                 }
             }
         }
+
+        
+        public void EliminarConHistorial(string codigoEstudiante)
+        {
+            using (SqlConnection cn = Conexion.ObtenerConexion())
+            {
+                cn.Open();
+                using (SqlTransaction tx = cn.BeginTransaction())
+                {
+                    try
+                    {
+                        
+                        EjecutarEliminacion(cn, tx, "DELETE FROM dbo.Evaluaciones_Finales WHERE codigo_estudiante = @codigo", codigoEstudiante);
+                        EjecutarEliminacion(cn, tx, "DELETE FROM dbo.Asistencias_Sesiones WHERE codigo_estudiante = @codigo", codigoEstudiante);
+
+                      
+                        using (SqlCommand cmd = new SqlCommand("sp_Estudiantes_Eliminar", cn, tx))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@codigo_estudiante", codigoEstudiante);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        tx.Commit();
+                    }
+                    catch
+                    {
+                        tx.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
+
+        private static void EjecutarEliminacion(SqlConnection cn, SqlTransaction tx, string sql, string codigoEstudiante)
+        {
+            using (SqlCommand cmd = new SqlCommand(sql, cn, tx))
+            {
+                cmd.Parameters.AddWithValue("@codigo", codigoEstudiante);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }

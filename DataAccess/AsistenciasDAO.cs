@@ -14,8 +14,9 @@ namespace GestionAcademica.DataAccess
             using (SqlCommand cmd = new SqlCommand("sp_Asistencias_ObtenerTodos", cn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
-                adaptador.Fill(tabla);
+                cn.Open();
+                using (SqlDataReader lector = cmd.ExecuteReader())
+                    tabla.Load(lector);
             }
 
             return tabla;
@@ -29,8 +30,9 @@ namespace GestionAcademica.DataAccess
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@texto", SqlDbType.NVarChar, 150).Value = texto ?? string.Empty;
-                using (SqlDataAdapter adaptador = new SqlDataAdapter(cmd))
-                    adaptador.Fill(tabla);
+                cn.Open();
+                using (SqlDataReader lector = cmd.ExecuteReader())
+                    tabla.Load(lector);
             }
             return tabla;
         }

@@ -5,5 +5,6 @@ namespace GestionAcademica.Entities
         public int IdUsuario { get; set; }
         public string NombreUsuario { get; set; } = string.Empty;
         public string NombreCompleto { get; set; } = string.Empty;
+        public string ContrasenaHash { get; set; } = string.Empty;
     }
 }

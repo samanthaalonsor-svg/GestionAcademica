@@ -58,5 +58,14 @@ namespace GestionAcademica.Negocio
 
             estudiantesDAO.Eliminar(codigoEstudiante);
         }
+
+        public void EliminarConHistorial(string codigoEstudiante)
+        {
+            if (string.IsNullOrWhiteSpace(codigoEstudiante))
+                throw new InvalidOperationException("Debe seleccionar un estudiante para eliminar.");
+
+            estudiantesDAO.EliminarConHistorial(codigoEstudiante);
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 using System.Data;
+using System.Globalization;
 using System.Text;
 using GestionAcademica.Entities;
 using GestionAcademica.Negocio;
@@ -194,7 +195,7 @@ namespace GestionAcademica.Forms
 
         private async void BtnGenerarReporte_Click(object sender, EventArgs e)
         {
-            // Se leen y validan los controles en el hilo de la interfaz...
+
             int tipo = cboTipoReporte.SelectedIndex;
             string filtro = txtFiltro.Text.Trim();
             int idEstado = Convert.ToInt32(cboEstadoReporte.SelectedValue ?? 0);
@@ -211,7 +212,7 @@ namespace GestionAcademica.Forms
 
             if (tipo == 2 && !string.IsNullOrWhiteSpace(txtNotaMinima.Text))
             {
-                if (!double.TryParse(txtNotaMinima.Text.Trim(), out double valor) || valor < 0 || valor > 100)
+                if (!double.TryParse(txtNotaMinima.Text.Trim().Replace(',', '.'), NumberStyles.Float, CultureInfo.InvariantCulture, out double valor) || valor < 0 || valor > 100)
                 {
                     MessageBox.Show("La nota mínima debe ser un número entre 0 y 100.", "Validación",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -234,7 +235,7 @@ namespace GestionAcademica.Forms
                     break;
             }
 
-            // ...y la consulta LINQ/EF Core corre en segundo plano para que la ventana no se congele.
+
             btnGenerarReporte.Enabled = false;
             lblResultado.Text = "Generando reporte...";
 
@@ -324,6 +325,11 @@ namespace GestionAcademica.Forms
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void lblHasta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

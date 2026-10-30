@@ -6,7 +6,10 @@ namespace GestionAcademica.DataAccess
     {
         
         private static readonly string cadenaConexion =
-            @"Server=localhost\SQLEXPRESS;Database=Gestion Academica;Trusted_Connection=True;TrustServerCertificate=True;";
+            @"Server=localhost\SQLEXPRESS;
+             Database=Gestion Academica;
+             Trusted_Connection=True;
+             TrustServerCertificate=True;";
 
         public static string ObtenerCadenaConexion() => cadenaConexion;
 

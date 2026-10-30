@@ -55,7 +55,7 @@ namespace GestionAcademica.Forms
             // progressBar
             // 
             progressBar.Location = new Point(13, 175);
-            progressBar.Margin = new Padding(4, 4, 4, 4);
+            progressBar.Margin = new Padding(4);
             progressBar.Name = "progressBar";
             progressBar.Size = new Size(797, 32);
             progressBar.TabIndex = 2;
@@ -89,13 +89,13 @@ namespace GestionAcademica.Forms
             txtResultado.BackColor = Color.White;
             txtResultado.Font = new Font("Segoe UI", 10F);
             txtResultado.ForeColor = Color.FromArgb(30, 41, 59);
-            txtResultado.Location = new Point(30, 268);
-            txtResultado.Margin = new Padding(4, 4, 4, 4);
+            txtResultado.Location = new Point(13, 261);
+            txtResultado.Margin = new Padding(4);
             txtResultado.Multiline = true;
             txtResultado.Name = "txtResultado";
             txtResultado.ReadOnly = true;
             txtResultado.ScrollBars = ScrollBars.Vertical;
-            txtResultado.Size = new Size(780, 186);
+            txtResultado.Size = new Size(853, 186);
             txtResultado.TabIndex = 5;
             // 
             // btnIniciar
@@ -109,7 +109,7 @@ namespace GestionAcademica.Forms
             btnIniciar.Font = new Font("Segoe UI", 10F);
             btnIniciar.ForeColor = Color.White;
             btnIniciar.Location = new Point(30, 485);
-            btnIniciar.Margin = new Padding(4, 4, 4, 4);
+            btnIniciar.Margin = new Padding(4);
             btnIniciar.Name = "btnIniciar";
             btnIniciar.Size = new Size(200, 50);
             btnIniciar.TabIndex = 6;
@@ -129,7 +129,7 @@ namespace GestionAcademica.Forms
             btnCancelar.Font = new Font("Segoe UI", 10F);
             btnCancelar.ForeColor = Color.FromArgb(220, 38, 38);
             btnCancelar.Location = new Point(261, 485);
-            btnCancelar.Margin = new Padding(4, 4, 4, 4);
+            btnCancelar.Margin = new Padding(4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(200, 50);
             btnCancelar.TabIndex = 7;
@@ -148,7 +148,7 @@ namespace GestionAcademica.Forms
             btnCerrar.Font = new Font("Segoe UI", 10F);
             btnCerrar.ForeColor = Color.FromArgb(51, 65, 85);
             btnCerrar.Location = new Point(610, 485);
-            btnCerrar.Margin = new Padding(4, 4, 4, 4);
+            btnCerrar.Margin = new Padding(4);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(200, 50);
             btnCerrar.TabIndex = 8;
@@ -172,7 +172,7 @@ namespace GestionAcademica.Forms
             Controls.Add(lblDescripcion);
             Controls.Add(lblTitulo);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormProcesosSegundoPlano";

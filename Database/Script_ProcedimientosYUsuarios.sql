@@ -1,4 +1,4 @@
-/*
+﻿/*
 ================================================================================
  Script: Procedimientos almacenados + tabla de Usuarios
  Proyecto: GestionAcademica
@@ -32,10 +32,18 @@ BEGIN
     (
         IdUsuario        INT IDENTITY(1,1) PRIMARY KEY,
         NombreUsuario    NVARCHAR(50)  NOT NULL UNIQUE,
-        ContrasenaHash   CHAR(64)      NOT NULL,   -- SHA-256 en hexadecimal, calculado en la app
+        ContrasenaHash   NVARCHAR(256) NOT NULL,   -- SHA-256 en hexadecimal, calculado en la app
         NombreCompleto   NVARCHAR(100) NOT NULL,
         Activo           BIT           NOT NULL DEFAULT (1)
     );
+END
+GO
+
+-- Permite hashes PBKDF2 para nuevas cuentas sin perder el usuario inicial legado.
+IF COL_LENGTH('dbo.Usuarios', 'ContrasenaHash') IS NOT NULL
+   AND EXISTS (SELECT 1 FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Usuarios') AND name = 'ContrasenaHash' AND max_length = 64)
+BEGIN
+    ALTER TABLE dbo.Usuarios ALTER COLUMN ContrasenaHash NVARCHAR(256) NOT NULL;
 END
 GO
 
@@ -341,7 +349,7 @@ GO
 -- ============================================================
 CREATE OR ALTER PROCEDURE sp_Usuarios_ValidarCredenciales
     @NombreUsuario   NVARCHAR(50),
-    @ContrasenaHash  CHAR(64)
+    @ContrasenaHash  NVARCHAR(256)
 AS
 BEGIN
     SET NOCOUNT ON;

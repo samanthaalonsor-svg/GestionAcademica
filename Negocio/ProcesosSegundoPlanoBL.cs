@@ -2,15 +2,25 @@ using System.Data;
 
 namespace GestionAcademica.Negocio
 {
-    /// <summary>
-    /// Coordina operaciones de consulta que pueden ejecutarse en segundo plano
-    /// sin bloquear la interfaz de usuario.
-    /// </summary>
+    
     public class ProcesosSegundoPlanoBL
     {
         private readonly EstudiantesBL estudiantesBL = new EstudiantesBL();
         private readonly AsistenciasBL asistenciasBL = new AsistenciasBL();
         private readonly EvaluacionesFinalesBL evaluacionesBL = new EvaluacionesFinalesBL();
+
+        
+        public static int PausaSimuladaMs { get; set; } = 2500;
+
+        private static void SimularCargaPesada(CancellationToken cancellationToken, int factor)
+        {
+            if (PausaSimuladaMs <= 0)
+                return;
+
+            
+            cancellationToken.WaitHandle.WaitOne(PausaSimuladaMs * factor);
+            cancellationToken.ThrowIfCancellationRequested();
+        }
 
         public async Task<ResumenCarga> EjecutarCargaAsync(
             CancellationToken cancellationToken,
@@ -21,7 +31,12 @@ namespace GestionAcademica.Negocio
             int completadas = 0;
 
             Task<int> tareaEstudiantes = EjecutarConThread(
-                estudiantesBL.ObtenerTodos,
+                () =>
+                {
+                    DataTable tabla = estudiantesBL.ObtenerTodos();
+                    SimularCargaPesada(cancellationToken, 1);
+                    return tabla;
+                },
                 cancellationToken,
                 () =>
                 {
@@ -33,6 +48,7 @@ namespace GestionAcademica.Negocio
             {
                 cancellationToken.ThrowIfCancellationRequested();
                 DataTable tabla = asistenciasBL.ObtenerTodos();
+                SimularCargaPesada(cancellationToken, 2);
                 cancellationToken.ThrowIfCancellationRequested();
                 int totalCompletadas = Interlocked.Increment(ref completadas);
                 progreso?.Report(totalCompletadas * 30);
@@ -43,6 +59,7 @@ namespace GestionAcademica.Negocio
             {
                 cancellationToken.ThrowIfCancellationRequested();
                 DataTable tabla = evaluacionesBL.ObtenerTodos();
+                SimularCargaPesada(cancellationToken, 3);
                 cancellationToken.ThrowIfCancellationRequested();
                 int totalCompletadas = Interlocked.Increment(ref completadas);
                 progreso?.Report(totalCompletadas * 30);
@@ -63,10 +80,7 @@ namespace GestionAcademica.Negocio
                 resultados[2]);
         }
 
-        /// <summary>
-        /// Ejecuta una consulta en un Thread dedicado y la expone como Task
-        /// para poder coordinarla con Task.WhenAll.
-        /// </summary>
+        
         private static Task<int> EjecutarConThread(
             Func<DataTable> consulta,
             CancellationToken cancellationToken,

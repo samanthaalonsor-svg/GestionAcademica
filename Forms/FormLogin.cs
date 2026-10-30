@@ -1,4 +1,4 @@
-using GestionAcademica.Negocio;
+﻿using GestionAcademica.Negocio;
 
 namespace GestionAcademica.Forms
 {
@@ -14,6 +14,13 @@ namespace GestionAcademica.Forms
         {
             base.OnFormClosed(e);
             Application.Exit();
+        }
+
+        private void BtnRegistrar_Click(object sender, EventArgs e)
+        {
+            using FormRegistroUsuario registro = new FormRegistroUsuario();
+            if (registro.ShowDialog(this) == DialogResult.OK)
+                txtUsuario.Focus();
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -48,7 +55,7 @@ namespace GestionAcademica.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo validar el usuario contra la base de datos.\n\n" + ex.Message,
+                MessageBox.Show("No se pudo validar el usuario contra la base de datos. Verifique la conexión con SQL Server.",
                     "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

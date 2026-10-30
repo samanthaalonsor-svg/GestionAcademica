@@ -127,11 +127,43 @@ namespace GestionAcademica.Forms
                 {
                     MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                catch (Microsoft.Data.SqlClient.SqlException ex) when (ex.Number == 547)
+                {
+                    // 547 = violación de llave foránea: el estudiante tiene evaluaciones o asistencias.
+                    EliminarConHistorial();
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("No se pudo eliminar (revisa que no tenga asistencias asociadas).\n\n" + ex.Message,
+                    MessageBox.Show("No se pudo eliminar el estudiante.\n\n" + ex.Message,
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        // Elimina al estudiante junto con su historial dentro de una transacción (Commit/Rollback).
+        private void EliminarConHistorial()
+        {
+            DialogResult respuesta = MessageBox.Show(
+                "Este estudiante tiene asistencias o evaluaciones registradas.\n\n" +
+                "¿Desea eliminarlo junto con todo su historial?\n" +
+                "La operación es atómica: si algo falla, no se elimina nada.",
+                "Eliminar con historial", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (respuesta != DialogResult.Yes)
+                return;
+
+            try
+            {
+                estudiantesBL.EliminarConHistorial(codigoSeleccionado);
+                CargarGrid();
+                LimpiarCampos();
+                MessageBox.Show("Estudiante e historial eliminados correctamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se eliminó nada (se revirtió la transacción).\n\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
