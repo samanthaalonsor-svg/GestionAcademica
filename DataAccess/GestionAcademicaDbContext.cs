@@ -19,6 +19,7 @@ namespace GestionAcademica.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
+                
                 optionsBuilder.UseSqlServer(Conexion.ObtenerCadenaConexion());
             }
         }
