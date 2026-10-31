@@ -85,8 +85,8 @@ namespace GestionAcademica.Forms
             // 
             cboPais.DropDownStyle = ComboBoxStyle.DropDownList;
             cboPais.Font = new Font("Segoe UI", 10.5F);
-            cboPais.Location = new Point(95, 179);
-            cboPais.Margin = new Padding(4, 4, 4, 4);
+            cboPais.Location = new Point(95, 184);
+            cboPais.Margin = new Padding(4);
             cboPais.Name = "cboPais";
             cboPais.Size = new Size(286, 38);
             cboPais.TabIndex = 3;
@@ -106,8 +106,8 @@ namespace GestionAcademica.Forms
             // nudAnio
             // 
             nudAnio.Font = new Font("Segoe UI", 10.5F);
-            nudAnio.Location = new Point(481, 188);
-            nudAnio.Margin = new Padding(4, 4, 4, 4);
+            nudAnio.Location = new Point(496, 187);
+            nudAnio.Margin = new Padding(4);
             nudAnio.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
             nudAnio.Minimum = new decimal(new int[] { 2000, 0, 0, 0 });
             nudAnio.Name = "nudAnio";
@@ -119,7 +119,7 @@ namespace GestionAcademica.Forms
             // 
             btnConsultar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnConsultar.Location = new Point(635, 181);
-            btnConsultar.Margin = new Padding(4, 4, 4, 4);
+            btnConsultar.Margin = new Padding(4);
             btnConsultar.Name = "btnConsultar";
             btnConsultar.Size = new Size(238, 45);
             btnConsultar.TabIndex = 6;
@@ -132,7 +132,7 @@ namespace GestionAcademica.Forms
             btnCancelar.Enabled = false;
             btnCancelar.Font = new Font("Segoe UI", 10F);
             btnCancelar.Location = new Point(881, 182);
-            btnCancelar.Margin = new Padding(4, 4, 4, 4);
+            btnCancelar.Margin = new Padding(4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(150, 45);
             btnCancelar.TabIndex = 7;
@@ -145,7 +145,7 @@ namespace GestionAcademica.Forms
             btnExportar.Enabled = false;
             btnExportar.Font = new Font("Segoe UI", 10F);
             btnExportar.Location = new Point(1044, 182);
-            btnExportar.Margin = new Padding(4, 4, 4, 4);
+            btnExportar.Margin = new Padding(4);
             btnExportar.Name = "btnExportar";
             btnExportar.Size = new Size(188, 45);
             btnExportar.TabIndex = 8;
@@ -172,7 +172,7 @@ namespace GestionAcademica.Forms
             tabResultados.Controls.Add(tabJson);
             tabResultados.Font = new Font("Segoe UI", 9.5F);
             tabResultados.Location = new Point(38, 285);
-            tabResultados.Margin = new Padding(4, 4, 4, 4);
+            tabResultados.Margin = new Padding(4);
             tabResultados.Name = "tabResultados";
             tabResultados.SelectedIndex = 0;
             tabResultados.Size = new Size(1375, 488);
@@ -182,7 +182,7 @@ namespace GestionAcademica.Forms
             // 
             tabFeriados.Controls.Add(dgvFeriados);
             tabFeriados.Location = new Point(4, 34);
-            tabFeriados.Margin = new Padding(4, 4, 4, 4);
+            tabFeriados.Margin = new Padding(4);
             tabFeriados.Name = "tabFeriados";
             tabFeriados.Size = new Size(1367, 450);
             tabFeriados.TabIndex = 0;
@@ -198,7 +198,7 @@ namespace GestionAcademica.Forms
             dgvFeriados.ColumnHeadersHeight = 34;
             dgvFeriados.Dock = DockStyle.Fill;
             dgvFeriados.Location = new Point(0, 0);
-            dgvFeriados.Margin = new Padding(4, 4, 4, 4);
+            dgvFeriados.Margin = new Padding(4);
             dgvFeriados.Name = "dgvFeriados";
             dgvFeriados.ReadOnly = true;
             dgvFeriados.RowHeadersWidth = 62;
@@ -210,7 +210,7 @@ namespace GestionAcademica.Forms
             // 
             tabSesiones.Controls.Add(dgvSesiones);
             tabSesiones.Location = new Point(4, 34);
-            tabSesiones.Margin = new Padding(4, 4, 4, 4);
+            tabSesiones.Margin = new Padding(4);
             tabSesiones.Name = "tabSesiones";
             tabSesiones.Size = new Size(1367, 450);
             tabSesiones.TabIndex = 1;
@@ -226,7 +226,7 @@ namespace GestionAcademica.Forms
             dgvSesiones.ColumnHeadersHeight = 34;
             dgvSesiones.Dock = DockStyle.Fill;
             dgvSesiones.Location = new Point(0, 0);
-            dgvSesiones.Margin = new Padding(4, 4, 4, 4);
+            dgvSesiones.Margin = new Padding(4);
             dgvSesiones.Name = "dgvSesiones";
             dgvSesiones.ReadOnly = true;
             dgvSesiones.RowHeadersWidth = 62;
@@ -238,7 +238,7 @@ namespace GestionAcademica.Forms
             // 
             tabJson.Controls.Add(txtJson);
             tabJson.Location = new Point(4, 34);
-            tabJson.Margin = new Padding(4, 4, 4, 4);
+            tabJson.Margin = new Padding(4);
             tabJson.Name = "tabJson";
             tabJson.Size = new Size(1367, 450);
             tabJson.TabIndex = 2;
@@ -251,7 +251,7 @@ namespace GestionAcademica.Forms
             txtJson.Dock = DockStyle.Fill;
             txtJson.Font = new Font("Consolas", 10F);
             txtJson.Location = new Point(0, 0);
-            txtJson.Margin = new Padding(4, 4, 4, 4);
+            txtJson.Margin = new Padding(4);
             txtJson.Multiline = true;
             txtJson.Name = "txtJson";
             txtJson.ReadOnly = true;
@@ -275,7 +275,7 @@ namespace GestionAcademica.Forms
             // 
             btnCerrar.Font = new Font("Segoe UI", 10F);
             btnCerrar.Location = new Point(1250, 800);
-            btnCerrar.Margin = new Padding(4, 4, 4, 4);
+            btnCerrar.Margin = new Padding(4);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(162, 45);
             btnCerrar.TabIndex = 12;
@@ -303,7 +303,7 @@ namespace GestionAcademica.Forms
             Controls.Add(lblDescripcion);
             Controls.Add(lblTitulo);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormServiciosWeb";
